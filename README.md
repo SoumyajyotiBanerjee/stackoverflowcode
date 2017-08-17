@@ -1,2 +1,2 @@
-# stackoverflowcode
-No Description till now
+# Stackoverflow Tag Recommendation
+This repository contains codes and data for tag recommendation in stackoverflow.
