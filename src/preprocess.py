@@ -1,7 +1,7 @@
 import sys
 import optparse
 import utils
-from utils import word_removal, find_pos_tag
+from utils import arg_parser, word_removal, find_pos_tag
 
 '''
 def preprocessing_line(line):
@@ -24,15 +24,6 @@ def preprocessing_line(line):
 	return opline.strip()
 
 '''
-def arg_parser():
-    parser = optparse.OptionParser()
-    parser.add_option("-i", "--infile", dest="infile",
-                       action="store", help="Input file name")
-    parser.add_option("-o", "--outfile", dest="outfile",
-                       action="store", help="Output file name")
-    options, args = parser.parse_args()
-    return options.infile, options.outfile
-
 def main(infile, outfile):
     fr = open(outfile,"w")
     i = 0

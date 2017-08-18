@@ -1,4 +1,4 @@
-
+import optparse
 import nltk
 from nltk import word_tokenize, pos_tag
 from nltk.corpus import stopwords
@@ -8,6 +8,16 @@ IGNORE_LIST = ['CC','CD','DT','EX','IN','JJR','JJS','MD','RB','RBS','RBR',\
                'VB','VBD','VBG','VBN','VBP','VBZ','WDT','WP','WP$','WRB']
 
 STOPWORDS = set(stopwords.words('english'))
+
+def arg_parser():
+    parser = optparse.OptionParser()
+    parser.add_option("-i", "--infile", dest="infile",
+                       action="store", help="Input file name")
+    parser.add_option("-o", "--outfile", dest="outfile",
+                       action="store", help="Output file name")
+    options, args = parser.parse_args()
+    return options.infile, options.outfile
+
 
 def find_pos_tag(line):
     """Find POS tags of a given line"""
