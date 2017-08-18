@@ -1,5 +1,5 @@
 import sys
-import argparse
+import optparse
 import utils
 from utils import word_removal, find_pos_tag
 
@@ -25,11 +25,13 @@ def preprocessing_line(line):
 
 '''
 def arg_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--infile", help="Input file name")
-    parser.add_argument("-o", "--outfile", help="Output file name")
-    args = parser.parse_args()
-    return infile, outfile
+    parser = optparse.OptionParser()
+    parser.add_option("-i", "--infile", dest="infile",
+                       action="store", help="Input file name")
+    parser.add_option("-o", "--outfile", dest="outfile",
+                       action="store", help="Output file name")
+    options, args = parser.parse_args()
+    return options.infile, options.outfile
 
 def main(infile, outfile):
     fr = open(outfile,"w")
@@ -39,7 +41,7 @@ def main(infile, outfile):
             ab = l.split(".")
             for k in ab:
                 if i%1000 == 0:
-		print "running",i
+    		    print "running",i
 		i+=1
 		am = word_removal(k)
 		fr.write(am)
@@ -47,7 +49,7 @@ def main(infile, outfile):
 if __name__ == '__main__':
     infile, outfile = arg_parser()
     main(infile, outfile)
-
+#Run as $ python proprocess.py -i <input_filename> -o <output_filename>
 #print word_removal("How to do POS tagging using the NLTK POS tagger in Python?")
 
 		
