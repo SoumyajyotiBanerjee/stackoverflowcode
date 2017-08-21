@@ -1,0 +1,15 @@
+upgrade
+vnc
+locoteams
+notification
+power-management
+community
+server
+remote-desktop
+software-center
+software-installation
+policykit
+security
+system-installation
+live-cd
+ssh
