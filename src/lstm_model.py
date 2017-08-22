@@ -1,5 +1,6 @@
 import numpy as np
 from keras.models import Sequential
+from keras.models import model_from_yaml
 from keras.layers import InputLayer, Dense
 from keras.layers import LSTM
 from keras.layers.embeddings import Embedding
@@ -25,19 +26,21 @@ model.add(InputLayer(input_shape=(x_train.shape[1], x_train.shape[2])))
 model.add(LSTM(2000,dropout=0.1))
 model.add(Dense(y_train.shape[1],activation='sigmoid'))
 
-sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+sgd = SGD(lr=0.05, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='binary_crossentropy',
                       optimizer=sgd)
 
 #Train model
-model.fit(x_train, y_train, epochs=100, batch_size=2000)
+model.fit(x_train, y_train, epochs=10, batch_size=2000)
 
-#Predict
-preds = model.predict(x_test)
-preds[preds>=0.5] = 1
-preds[preds<0.5] = 0
+#Save serialized model
+model_yaml = model.to_yaml()
+with open('../data/model_set_20k.yaml', 'w') as mfp:
+    mfp.write(model_yaml)
+model.save_weights('../data/model_set_20k.h5')
 
-#Evaluate
-score = model.evaluate(x_test, y_test)
-Acc = score[1]
-print '======================================\nAccuracy: %s'%Acc
+with open('../data/x_test_set_20k', 'w') as f:
+    pickle.dump(x_test, f)
+with open('../data/y_test_set_20k', 'w') as f:
+    pickle.dump(y_test, f)
+
