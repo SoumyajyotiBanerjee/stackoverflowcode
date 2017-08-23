@@ -26,16 +26,13 @@ def preprocessing_line(line):
 '''
 def main(infile, outfile):
     fr = open(outfile,"w")
-    i = 0
     with open(infile,"r") as f:
 	for l in f:
             ab = l.split(".")
             for k in ab:
-                if i%1000 == 0:
-    		    print "running",i
-		i+=1
 		am = word_removal(k)
-		fr.write(am)
+		fr.write("%s "%am)
+            fr.write('\n')
 
 if __name__ == '__main__':
     infile, outfile = arg_parser()

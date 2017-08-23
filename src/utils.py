@@ -36,7 +36,7 @@ def word_removal(line):
 	if text[0].strip() not in STOPWORDS and text[1].strip() not in IGNORE_LIST:
             word_list_append(text[0])
 
-    return ",".join(word_list)
+    return " ".join(word_list)
 
 if __name__ == '__main__':
     res = word_removal('Testing python POS tagger via this line')
