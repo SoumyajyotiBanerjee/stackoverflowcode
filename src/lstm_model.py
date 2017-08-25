@@ -17,8 +17,8 @@ x_train = np.array([e for e in d2v_model.docvecs], dtype='float')
 fp = open('../data/tag_vec_set_20k', 'rb')
 y_train = pickle.load(fp)
 #TODO random shuffle the data set and do cross validation
-x_test = x_train[5500:55700]
-y_test = y_train[5500:700]
+x_test = x_train[5500:5700]
+y_test = y_train[5500:5700]
 x_train = x_train.reshape(x_train.shape[0], 1, x_train.shape[1])
 x_test = x_test.reshape(x_test.shape[0], 1, x_test.shape[1])
 
