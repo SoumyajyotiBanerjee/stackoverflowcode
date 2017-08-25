@@ -3,7 +3,7 @@ from collections import namedtuple
 
 # Load data
 doc = []
-with open('../data/set_20k', 'r') as f_doc:
+with open('/home/deeplearning/stackoverflow/part2/tag_reco_data/data/set_1k', 'r') as f_doc:
     for line in f_doc:
         doc.append(str(line))
 
@@ -22,5 +22,5 @@ model = doc2vec.Doc2Vec(docs, size = 100, window = 300, min_count = 1, workers =
 #model.docvecs[0]
 #model.docvecs[1]
 
-model.save("../data/d2v_set_20k")
+model.save("/home/deeplearning/stackoverflow/part2/tag_reco_data/data/d2v_set_1k")
 #ax = doc2vec.Doc2Vec.load("doc2vectrain")
