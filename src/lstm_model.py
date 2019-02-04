@@ -1,19 +1,3 @@
-import numpy
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM
-from keras.layers.embeddings import Embedding
-from keras.preprocessing import sequence
-from gensim.models import doc2vec
-
-#Load Data
-d2v_model = doc2vec.Doc2Vec.load('doc2train')
-
-input_length = len(d2v_model.docvecs)
-
-model = Sequential()
-model.add(InputLayer(input_shape=100))
-model.add(LSTM(100,dropout=0.1,recurrent_dropout=0.2))
-model.add(Dense(15,activation='sigmoid'))
-
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:347ef7586fa676d48deb9f3986585bd06b8313d8bc14bda90028720e98f58f0d
+size 2137
