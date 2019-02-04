@@ -1,15 +1,3 @@
-upgrade
-vnc
-locoteams
-notification
-power-management
-community
-server
-remote-desktop
-software-center
-software-installation
-policykit
-security
-system-installation
-live-cd
-ssh
+version https://git-lfs.github.com/spec/v1
+oid sha256:bc87350dca916943c67b362e344a0b4b50ad832d302b7a17a39825365c1bc7b5
+size 173

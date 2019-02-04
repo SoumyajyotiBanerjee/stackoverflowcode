@@ -1,7 +1,3 @@
-from gensim.models.word2vec import LineSentence
-from gensim.models import Word2Vec
-import pickle
-
-sentences = LineSentence('p_out.txt')
-model = Word2Vec(sentences, size=100, window=5, min_count=5, workers=4)
-model.save('au_model')
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7c06b868601bad1439563472ba7d26c69956c60de6af8d7405ac757cca6f6f1
+size 231
